@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifier informations plats</ion-title>
+    <ion-buttons slot="start">
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (submit)="modifierPlat()"> 
+      <ion-list>
+        <ion-item>
+          <ion-label>Nom</ion-label>
+          <ion-input type="text" [(ngModel)]="plat.nom" value={{plat.nom}} name="nom" required minlength="2" #actor="ngModel"></ion-input>
+          <ion-text color="danger" *ngIf="actor.hasError('required')"></ion-text>
+        </ion-item>
+        <ion-item>
+            <ion-label>Prix</ion-label>
+            <ion-input type="number" [(ngModel)]="plat.prix" value={{plat.prix}} name="prix"></ion-input>
+
+          </ion-item>
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-textarea [(ngModel)]="plat.description" value={{plat.description}} name="description"></ion-textarea>
+        </ion-item>
+        <ion-button type="submit">Enregistrer</ion-button>
+
+      </ion-list>
+      </form>
+ 
+</ion-content>

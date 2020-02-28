@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      SUNU RESTAURANT
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+      <ion-img src="assets/images/resto.jpg"></ion-img>
+   	<div >
+   		<ion-title>MENU DU JOUR</ion-title>
+   		<ion-list>
+		  <!-- Sliding item with text options on both sides -->
+		  	<ion-item-group *ngFor="let restaurant of restaurants">
+			  <ion-item-divider >
+			    <h3><ion-label color="danger"  >{{restaurant.nom}}</ion-label></h3>
+			  </ion-item-divider>
+
+			  <ion-item *ngFor="let plat of restaurant.plats">
+			    <ion-label> {{ plat.nom }} </ion-label>
+			  </ion-item>
+			  
+			</ion-item-group>
+		</ion-list>
+
+   	</div>
+   	
+</ion-content>

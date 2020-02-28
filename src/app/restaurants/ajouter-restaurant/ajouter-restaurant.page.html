@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter un restaurant</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (submit)="ajouterRestaurant()"> 
+      <ion-list>
+        <ion-item>
+          <ion-label>Nom</ion-label>
+          <ion-input type="text" [(ngModel)]="restaurant.nom" name="nom" required minlength="2" #actor="ngModel"></ion-input>
+          <ion-text color="danger" *ngIf="actor.hasError('required')"></ion-text>
+        </ion-item>
+        <ion-item>
+            <ion-label>Location</ion-label>
+            <ion-input type="text" [(ngModel)]="restaurant.location" name="location"></ion-input>
+
+        </ion-item>
+        <ion-item>
+          <ion-label>Plats</ion-label>
+          <ion-select multiple="true" [(ngModel)]="restaurant.plats" name="plats" cancelText="Non" okText="Okay!">
+            <ion-select-option *ngFor="let plat of plats" [value]=plat >{{plat.nom}}</ion-select-option>
+          </ion-select>
+       </ion-item>
+        <ion-button type="submit">Enregistrer</ion-button>
+
+      </ion-list>
+      </form>
+ 
+
+</ion-content>
